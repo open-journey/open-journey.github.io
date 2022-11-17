@@ -71,6 +71,20 @@ from diffusers.models import AutoencoderKL
 from diffusers import StableDiffusionPipeline
 			</pre>
 			<p>You also can add other libraries for image processing and manipulation, such as <code>PIL</code> or <code>cv2</code>, and you also can have add other libraries you need. All libraries above are just for image generation.</p>
+			<h3>Creating the pipeline</h3>
+			<p>Creating a pipeline is quite easy, you just have to write this piece of code here: </p>
+			<pre lang="python">
+pipe = StableDiffusionPipeline.from_pretrained("openjourney/openjourney", use_auth_token=True)
+pipe = pipe.to("cuda")
+			</pre>
+			<p>Now, we can start image generation. But since OpenJourney is based on the main Stable Diffusion pipelines, it has a strict NSFW filtering function, and in order to disable that, you may consider using these lines of code.</p>
+			<pre lang="python">
+def dummy(images, **kwargs): 
+	return images, False
+			
+pipe.safety_checker = dummy
+			</pre>
+			<p><strong>Important Note: </strong>Since AI art generator software is used by pretty much all the people in any age, consider <strong>NOT</strong> disabling this filter when you give its access to minors. We do not want bad content to be shown to minors or sensitive people.</p>
             <h2>Links</h2>
             <p><a href="https://github.com/compvis/stable-diffusion">Stable Diffusion</a>: The basic model OpenJourney is built on top of.</p>
             <p><a href="https://huggingface.co/openjourney/openjourney">OpenJourney on huggingface</a>: For more information and instructions.</p>
