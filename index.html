@@ -62,6 +62,15 @@
 			<pre>pip install diffusers transformers ftfy scipy accelerate</pre>
 			<p>Remember that <em>accelerate</em> tunes your VRAM usage and makes the whole process of image generation much faster.</p>
 			<p>After you installed all the libraries, you have to use <code>huggingface-cli login</code> command in your terminal and give your token to it. Then, it'll log you in into your huggingface account.</p>
+			<h3>Importing needed libraries</h3>
+			<p>Now, you have to import the needed libraries in order to get the whole thing to work. These are what you need:</p>
+			<pre lang="python">
+				import torch
+				from torch import autocast
+				from diffusers.models import AutoencoderKL
+				from diffusers import StableDiffusionPipeline
+			</pre>
+			<p>You also can add other libraries for image processing and manipulation, such as <code>PIL</code> or <code>cv2</code>, and you also can have add other libraries you need. All libraries above are just for image generation.</p>
             <h2>Links</h2>
             <p><a href="https://github.com/compvis/stable-diffusion">Stable Diffusion</a>: The basic model OpenJourney is built on top of.</p>
             <p><a href="https://huggingface.co/openjourney/openjourney">OpenJourney on huggingface</a>: For more information and instructions.</p>
