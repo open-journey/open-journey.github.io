@@ -95,7 +95,7 @@ prompt = f"mdjrny-v4 style {prompt}"
 			<p>Then, you have to run this: </p>
 			<pre lang="python">
 with autocast("cuda"):
-  image = pipe(prompt=prompt, num_inference_steps=100, width=448, height=768, guidance_scale=15).images[0]
+  image = pipe(prompt=prompt, num_inference_steps=100, width=512, height=512, guidance_scale=15).images[0]
 			</pre>
 			<p>And finally, with <code>image.save("image.png")</code> you'll be able to save your image and enjoy.</p>
             <h2>Links</h2>
